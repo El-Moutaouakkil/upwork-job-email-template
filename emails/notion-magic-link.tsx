@@ -21,6 +21,12 @@ export const EmailTemplate = () => (
                         diff={247}
                         diffCol='green'
                     />
+                    <MetricCard
+                        title='MRR'
+                        value={3459898}
+                        diff={119}
+                        diffCol='red'
+                    />
                 </Container>
             </Body>
         </Tailwind>
