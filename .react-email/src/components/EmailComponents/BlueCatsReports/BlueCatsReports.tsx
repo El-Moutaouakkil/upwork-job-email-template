@@ -28,8 +28,8 @@ const BlueCatsReports = ({ data }: BlueCatsReportsProps) => {
           metricCardCount === 1 && 'justify-center',
         )}
       >
-        {data.map((metric) => (
-          <MetricCard {...metric} />
+        {data.map((metric, idx) => (
+          <MetricCard {...metric} key={idx} />
         ))}
       </div>
     </Container>

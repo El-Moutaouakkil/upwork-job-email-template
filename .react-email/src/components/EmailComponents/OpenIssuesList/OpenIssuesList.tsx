@@ -29,8 +29,8 @@ const OpenIssuesList = ({ data }: OpenIssuesListProps) => {
         </div>
       ) : (
         <div className=" flex flex-col gap-0">
-          {data.map((openIssue) => (
-            <PMCard {...openIssue} />
+          {data.map((openIssue,idx) => (
+            <PMCard {...openIssue} key={idx} />
           ))}
         </div>
       )}
