@@ -4,9 +4,9 @@ import classNames from 'classnames';
 import { formatValue } from './helpers';
 // import styles from "./MetricCard.module.css";
 import './test.css';
-import React from 'react';
+import React, { useState } from 'react';
 
-type MetricCardProps = {
+export type MetricCardProps = {
   title: string;
   value: number;
   diff: number;
@@ -21,8 +21,10 @@ const MetricCard = ({
   diffCol,
   currency = '£',
 }: MetricCardProps) => {
+  const isPositive = diffCol === 'green';
+
   return (
-    <div className=" shadow-md  rounded-md  w-[100px] h-[100px] flex flex-col justify-between items-start p-3 ">
+    <div className="bg-white shadow-md  rounded-md  w-[100px] h-[100px] flex flex-col justify-between items-start p-3 ">
       <Heading className=" text-sm text-blue-600 m-0 p-0">{title}</Heading>
       <Text className="text-xl font-semibold m-0 p-0">
         {currency || '£'}
@@ -30,28 +32,18 @@ const MetricCard = ({
       </Text>
       <Text
         className={classNames(
-          {
-            'text-red-600': diffCol === 'red',
-            'text-green-600': diffCol === 'green',
-          },
-          ' flex items-center gap-1 m-0 p-0 font-semibold ',
+          isPositive ? 'text-green-600' : 'text-red-600',
+          'text-xs flex items-center gap-1 m-0 p-0 font-bold',
         )}
       >
-        {diffCol === 'green' ? (
-          <>
-            <IoTrendingUp size={20} />
-            <span>{diff}+ </span>
-          </>
-        ) : (
-          <>
-            <IoTrendingDown />
-            <span>{diff}- </span>
-          </>
-        )}
+        <span>
+          {isPositive ? '+' : '-'}
+          {currency || '£'}
+          {formatValue(diff)}
+        </span>
+        {isPositive ? <IoTrendingUp size={20} /> : <IoTrendingDown size={20} />}
       </Text>
     </div>
-    // <Tailwind>
-    // </Tailwind>
   );
 };
 
