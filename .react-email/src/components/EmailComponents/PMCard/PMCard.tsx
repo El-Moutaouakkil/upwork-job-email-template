@@ -45,11 +45,13 @@ const PMCard = ({ title, list, dueDate, isNew, members }: PMCardProps) => {
               </div>
             </>
           )}
-          <img
-            className="w-6 h-6 rounded-full  absolute right-0 -bottom-3 "
-            src={members[0].avatarUrl}
-            alt="avatar"
-          />
+          <div className="w-6 h-6 rounded-full  absolute right-0 -bottom-3 block ">
+            <img
+              className="block w-full h-full rounded-full shadow-md shadow-gray-600"
+              src={members[0].avatarUrl}
+              alt="avatar"
+            />
+          </div>
         </Container>
       </div>
     </Container>
