@@ -25,12 +25,24 @@ const MetricCard = ({
   return (
     <div
       className={classNames(
-        'my-3 bg-white shadow-md  rounded-md  w-[100px] h-[100px] flex flex-col justify-between items-start p-3 ',
+        ' bg-white shadow-md  rounded-md  w-[100px] h-[100px] flex flex-col justify-between items-start p-3 whitespace-nowrap text-overflow-ellipsis ',
         alignRow && 'flex-row items-center  w-[236px] h-auto py-2',
       )}
     >
-      <Heading className=" text-sm text-blue-600 m-0 p-0">{title}</Heading>
-      <Text className="text-xl font-semibold m-0 p-0">
+      <Heading
+        className={classNames(
+          ' text-sm text-blue-600 m-0 p-0 whitespace-nowrap text-overflow-ellipsis',
+          alignRow && 'text-xs',
+        )}
+      >
+        {title}
+      </Heading>
+      <Text
+        className={classNames(
+          'text-xl font-semibold m-0 p-0',
+          alignRow && 'text-base',
+        )}
+      >
         {currency || '£'}
         {formatValue(value)}
       </Text>

@@ -6,10 +6,10 @@ import {
     Preview,
     Tailwind,
 } from "@react-email/components";
-import MetricCard from "../.react-email/src/components/EmailComponents/BlueCatsReports/MetricCard";
-import BlueCatReports, {
+import MetricCard from "../.react-email/src/components/EmailComponents/MetricCardGroup/MetricCard";
+import MetricCardGroup, {
     BlueCatsReportsData,
-} from "../.react-email/src/components/EmailComponents/BlueCatsReports/BlueCatsReports";
+} from "../.react-email/src/components/EmailComponents/MetricCardGroup/MetricCardGroup";
 import PMCard from "../.react-email/src/components/EmailComponents/PMCard/PMCard";
 import OpenIssuesList, {
     OpenIssuesListData,
@@ -29,7 +29,18 @@ const data: BlueCatsReportsData = [
         diff: 123,
         diffCol: "red",
     },
-  
+    {
+        title: "MRR",
+        value: 1234,
+        diff: 123,
+        diffCol: "green",
+    },
+    {
+        title: "Revs MTD",
+        value: 459343456,
+        diff: 123,
+        diffCol: "red",
+    },
 ];
 
 const OpenIssuesData: OpenIssuesListData = [
@@ -99,22 +110,15 @@ export const EmailTemplate = () => (
                     className='font-sans
                 bg-slate-50 w-[288px] p-4 border border-solid border-slate-200 rounded-md
                 '>
-                    <BlueCatReports data={data} />
-                    {/* <OpenIssuesList data={OpenIssuesData} /> */}
-                    {/* add a MetricCard component */}
-                    <MetricCard
-                        title='MRR'
-                        value={1234}
-                        diff={123}
-                        diffCol='green'
-                        alignRow={true}
+                    <MetricCardGroup
+                        title='Blue Cat reports'
+                        data={data.slice(0, 2)}
                     />
-                    <MetricCard
-                        title='MRR'
-                        value={1234}
-                        diff={123}
-                        diffCol='red'
-                        alignRow={true}
+                    <OpenIssuesList data={OpenIssuesData} />
+                    <MetricCardGroup
+                        title='Time in list'
+                        data={data}
+                        alignVertical
                     />
                 </Container>
             </Body>

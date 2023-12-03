@@ -7,33 +7,40 @@ import CardGroupTitle from '../CardGroupTitle/CardGroupTitle';
 
 export type BlueCatsReportsData = MetricCardProps[];
 type BlueCatsReportsProps = {
+  title: string
   data: BlueCatsReportsData;
+  alignVertical?: boolean;
 };
 
-const BlueCatReports = ({ data }: BlueCatsReportsProps) => {
+const MetricCardGroup = ({
+  title,
+  data,
+  alignVertical = false,
+}: BlueCatsReportsProps) => {
   if (!data) {
     return null;
   }
   const metricCardCount = data.length;
 
-  if (metricCardCount > 2)
-    throw new Error('BlueCatsReports should accept a maximum of 2 metrics');
+  if (!alignVertical && metricCardCount > 2)
+    throw new Error('MetricCardGroup should accept a maximum of 2 metrics when alignVertical is false');
 
   return (
     <Container>
-      <CardGroupTitle title=" Blue Cat Reports" />
+      <CardGroupTitle title={title} />
       <div
         className={classNames(
           'flex flex-row gap-3',
           metricCardCount === 1 && 'justify-center',
+          alignVertical && 'flex-col gap-2',
         )}
       >
-        {data.map((metric, idx) => (
-          <MetricCard {...metric} key={idx} />
+        {data.map(({ alignRow, ...metric }, idx) => (
+          <MetricCard {...metric} key={idx} alignRow={alignVertical} />
         ))}
       </div>
     </Container>
   );
 };
 
-export default BlueCatReports;
+export default MetricCardGroup;
