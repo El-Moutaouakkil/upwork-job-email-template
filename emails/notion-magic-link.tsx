@@ -96,10 +96,10 @@ export const EmailTemplate = () => (
             <Body className='bg-white h-[100vh] '>
                 <Container
                     className='font-sans
-                bg-slate-50 w-[212px] p-4 border border-solid border-slate-200 rounded-md
+                bg-slate-50 w-[288px] p-4 border border-solid border-slate-200 rounded-md
                 '>
                     <BlueCatsReports data={[data[0]]} />
-                    <OpenIssuesList data={[]} />
+                    <OpenIssuesList data={OpenIssuesData} />
                 </Container>
             </Body>
         </Tailwind>
