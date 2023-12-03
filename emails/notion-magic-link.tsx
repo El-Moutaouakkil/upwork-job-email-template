@@ -25,10 +25,11 @@ const data: BlueCatsReportsData = [
     },
     {
         title: "Revs MTD",
-        value: 1234,
+        value: 459343456,
         diff: 123,
         diffCol: "red",
     },
+  
 ];
 
 const OpenIssuesData: OpenIssuesListData = [
@@ -98,8 +99,23 @@ export const EmailTemplate = () => (
                     className='font-sans
                 bg-slate-50 w-[288px] p-4 border border-solid border-slate-200 rounded-md
                 '>
-                    <BlueCatReports data={[data[0]]} />
-                    <OpenIssuesList data={OpenIssuesData} />
+                    <BlueCatReports data={data} />
+                    {/* <OpenIssuesList data={OpenIssuesData} /> */}
+                    {/* add a MetricCard component */}
+                    <MetricCard
+                        title='MRR'
+                        value={1234}
+                        diff={123}
+                        diffCol='green'
+                        alignRow={true}
+                    />
+                    <MetricCard
+                        title='MRR'
+                        value={1234}
+                        diff={123}
+                        diffCol='red'
+                        alignRow={true}
+                    />
                 </Container>
             </Body>
         </Tailwind>
