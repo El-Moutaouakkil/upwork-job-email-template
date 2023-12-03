@@ -3,6 +3,7 @@ import { Container, Heading } from '@react-email/components';
 import MetricCard, { MetricCardProps } from './MetricCard';
 import PMCard from '../PMCard/PMCard';
 import classNames from 'classnames';
+import CardGroupTitle from '../CardGroupTitle/CardGroupTitle';
 
 export type BlueCatsReportsData = MetricCardProps[];
 type BlueCatsReportsProps = {
@@ -20,10 +21,13 @@ const BlueCatsReports = ({ data }: BlueCatsReportsProps) => {
 
   return (
     <Container>
-      <Heading className="pt-0 mt-0 text-base font-semibold">
-        Blue Cat Reports
-      </Heading>
-      <div className={classNames('flex flex-row gap-3', metricCardCount === 1 && "justify-center" )}>
+      <CardGroupTitle title=" Blue Cat Reports" />
+      <div
+        className={classNames(
+          'flex flex-row gap-3',
+          metricCardCount === 1 && 'justify-center',
+        )}
+      >
         {data.map((metric) => (
           <MetricCard {...metric} />
         ))}
