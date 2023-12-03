@@ -7,11 +7,13 @@ import {
     Tailwind,
 } from "@react-email/components";
 import MetricCard from "../.react-email/src/components/EmailComponents/BlueCatsReports/MetricCard";
-import BlueCatsReports, {
+import BlueCatReports, {
     BlueCatsReportsData,
 } from "../.react-email/src/components/EmailComponents/BlueCatsReports/BlueCatsReports";
 import PMCard from "../.react-email/src/components/EmailComponents/PMCard/PMCard";
-import OpenIssuesList, { OpenIssuesListData } from "../.react-email/src/components/EmailComponents/OpenIssuesList/OpenIssuesList";
+import OpenIssuesList, {
+    OpenIssuesListData,
+} from "../.react-email/src/components/EmailComponents/OpenIssuesList/OpenIssuesList";
 
 // give me some fake data to work with
 const data: BlueCatsReportsData = [
@@ -86,8 +88,6 @@ const OpenIssuesData: OpenIssuesListData = [
     },
 ];
 
-
-
 export const EmailTemplate = () => (
     <Html>
         <Head />
@@ -98,7 +98,7 @@ export const EmailTemplate = () => (
                     className='font-sans
                 bg-slate-50 w-[288px] p-4 border border-solid border-slate-200 rounded-md
                 '>
-                    <BlueCatsReports data={[data[0]]} />
+                    <BlueCatReports data={[data[0]]} />
                     <OpenIssuesList data={OpenIssuesData} />
                 </Container>
             </Body>

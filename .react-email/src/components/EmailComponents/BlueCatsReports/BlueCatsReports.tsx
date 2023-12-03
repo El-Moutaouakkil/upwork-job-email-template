@@ -10,7 +10,7 @@ type BlueCatsReportsProps = {
   data: BlueCatsReportsData;
 };
 
-const BlueCatsReports = ({ data }: BlueCatsReportsProps) => {
+const BlueCatReports = ({ data }: BlueCatsReportsProps) => {
   if (!data) {
     return null;
   }
@@ -36,4 +36,4 @@ const BlueCatsReports = ({ data }: BlueCatsReportsProps) => {
   );
 };
 
-export default BlueCatsReports;
+export default BlueCatReports;
