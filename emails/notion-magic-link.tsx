@@ -15,9 +15,10 @@ import PMCard from "../.react-email/src/components/EmailComponents/PMCard/PMCard
 import PMCardGroup, {
     OpenIssuesListData,
 } from "../.react-email/src/components/EmailComponents/PMCardGroup/PMCardGroup";
+import ReportOverview from "../.react-email/src/components/EmailComponents/ReportOverview/ReportOverview";
 
 // give me some fake data to work with
-const data: BlueCatsReportsData = [
+const blueCatsReportsData: BlueCatsReportsData = [
     {
         title: "MRR",
         value: 1234,
@@ -44,7 +45,7 @@ const data: BlueCatsReportsData = [
     },
 ];
 
-const OpenIssuesData: OpenIssuesListData = [
+const groupCardData: OpenIssuesListData = [
     {
         title: "Save user personal settings on server as well - too many don't allow cookies/localStorage",
         list: "Doing",
@@ -101,35 +102,56 @@ const OpenIssuesData: OpenIssuesListData = [
     },
 ];
 
-export const EmailTemplate = () => (
-    <Html>
-        <Head />
-        <Preview>Log in with this magic link</Preview>
-        <Tailwind>
-            <Body className='bg-white h-[100vh] '>
-                <Container
-                    className='font-sans
+export const EmailTemplate = () => {
+    const newOppenIssuesCount = groupCardData
+        .slice(0, 2)
+        .filter((card) => card.isNew).length;
+
+    const inProgressCardsCount = groupCardData.slice(2).length;
+
+    const metricCardGrowth = blueCatsReportsData
+        .slice(0, 2)
+        .filter((card) => card.diffCol === "green");
+
+    return (
+        <Html>
+            <Head />
+            <Preview>Log in with this magic link</Preview>
+            <Tailwind>
+                <Body className='bg-white h-[100vh] '>
+                    <Container
+                        className='font-sans
                 bg-slate-50 w-[288px] p-4 border border-solid border-slate-200 rounded-md
                 '>
-                    <Text>Welcmoe to your daily email dashboard.</Text>
-                    <Text></Text>
-                    <MetricCardGroup
-                        title='Blue Cat reports'
-                        data={data.slice(0, 2)}
-                    />
-                    <PMCardGroup
-                        title='Open Customer Issues'
-                        data={OpenIssuesData}
-                    />
-                    <MetricCardGroup
-                        title='Time in list'
-                        data={data}
-                        alignVertical
-                    />
-                </Container>
-            </Body>
-        </Tailwind>
-    </Html>
-);
+                        <ReportOverview
+                            greeting='Welcome to your daily email dashboard.'
+                            newOppenIssuesCount={newOppenIssuesCount}
+                            inProgressCardsCount={inProgressCardsCount}
+                            metricCardGrowth={metricCardGrowth.length}
+                        />
+
+                        <MetricCardGroup
+                            title='Blue Cat reports'
+                            data={blueCatsReportsData.slice(0, 2)}
+                        />
+                        <PMCardGroup
+                            title='Open Customer Issues'
+                            data={groupCardData.slice(0, 2)}
+                        />
+                        <PMCardGroup
+                            title='In Progress Cards'
+                            data={groupCardData.slice(2)}
+                        />
+                        <MetricCardGroup
+                            title='Time in list'
+                            data={blueCatsReportsData}
+                            alignVertical
+                        />
+                    </Container>
+                </Body>
+            </Tailwind>
+        </Html>
+    );
+};
 
 export default EmailTemplate;
