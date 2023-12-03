@@ -1,10 +1,7 @@
-import { IoTrendingUp, IoTrendingDown } from 'react-icons/io5'; // MetricCard.tsx
-import { Heading, Tailwind, Text } from '@react-email/components';
+import { Heading, Text } from '@react-email/components';
 import classNames from 'classnames';
+import { IoTrendingDown, IoTrendingUp } from 'react-icons/io5';
 import { formatValue } from './helpers';
-// import styles from "./MetricCard.module.css";
-import './test.css';
-import React, { useState } from 'react';
 
 export type MetricCardProps = {
   title: string;

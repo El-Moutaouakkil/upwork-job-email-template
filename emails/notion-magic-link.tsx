@@ -7,6 +7,25 @@ import {
     Tailwind,
 } from "@react-email/components";
 import MetricCard from "../.react-email/src/components/EmailComponents/BlueCatsReports/MetricCard";
+import BlueCatsReports, {
+    BlueCatsReportsData,
+} from "../.react-email/src/components/EmailComponents/BlueCatsReports/BlueCatsReports";
+
+// give me some fake data to work with
+const data: BlueCatsReportsData = [
+    {
+        title: "MRR",
+        value: 1234,
+        diff: 123,
+        diffCol: "green",
+    },
+    {
+        title: "Revs MTD",
+        value: 1234,
+        diff: 123,
+        diffCol: "red",
+    },
+];
 
 export const EmailTemplate = () => (
     <Html>
@@ -15,18 +34,7 @@ export const EmailTemplate = () => (
         <Tailwind>
             <Body className='bg-white h-[100vh] '>
                 <Container className='w-full h-2/3 font-sans'>
-                    <MetricCard
-                        title='MRR'
-                        value={23498}
-                        diff={247}
-                        diffCol='green'
-                    />
-                    <MetricCard
-                        title='MRR'
-                        value={3459898}
-                        diff={119}
-                        diffCol='red'
-                    />
+                    <BlueCatsReports data={data} />
                 </Container>
             </Body>
         </Tailwind>
