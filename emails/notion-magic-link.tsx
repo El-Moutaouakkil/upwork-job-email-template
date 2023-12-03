@@ -99,7 +99,7 @@ export const EmailTemplate = () => (
                 bg-slate-50 w-[212px] p-4 border border-solid border-slate-200 rounded-md
                 '>
                     <BlueCatsReports data={data} />
-                    <OpenIssuesList data={OpenIssuesData} />
+                    <OpenIssuesList data={[]} />
                 </Container>
             </Body>
         </Tailwind>
