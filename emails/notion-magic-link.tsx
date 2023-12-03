@@ -5,15 +5,16 @@ import {
     Html,
     Preview,
     Tailwind,
+    Text,
 } from "@react-email/components";
 import MetricCard from "../.react-email/src/components/EmailComponents/MetricCardGroup/MetricCard";
 import MetricCardGroup, {
     BlueCatsReportsData,
 } from "../.react-email/src/components/EmailComponents/MetricCardGroup/MetricCardGroup";
 import PMCard from "../.react-email/src/components/EmailComponents/PMCard/PMCard";
-import OpenIssuesList, {
+import PMCardGroup, {
     OpenIssuesListData,
-} from "../.react-email/src/components/EmailComponents/OpenIssuesList/OpenIssuesList";
+} from "../.react-email/src/components/EmailComponents/PMCardGroup/PMCardGroup";
 
 // give me some fake data to work with
 const data: BlueCatsReportsData = [
@@ -110,11 +111,16 @@ export const EmailTemplate = () => (
                     className='font-sans
                 bg-slate-50 w-[288px] p-4 border border-solid border-slate-200 rounded-md
                 '>
+                    <Text>Welcmoe to your daily email dashboard.</Text>
+                    <Text></Text>
                     <MetricCardGroup
                         title='Blue Cat reports'
                         data={data.slice(0, 2)}
                     />
-                    <OpenIssuesList data={OpenIssuesData} />
+                    <PMCardGroup
+                        title='Open Customer Issues'
+                        data={OpenIssuesData}
+                    />
                     <MetricCardGroup
                         title='Time in list'
                         data={data}

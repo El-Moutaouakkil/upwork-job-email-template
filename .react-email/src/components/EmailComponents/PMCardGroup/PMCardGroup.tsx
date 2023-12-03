@@ -6,21 +6,23 @@ import CardGroupTitle from '../CardGroupTitle/CardGroupTitle';
 
 export type OpenIssuesListData = PMCardProps[];
 type OpenIssuesListProps = {
+  title:string,
   data: OpenIssuesListData;
 };
 
-const OpenIssuesList = ({ data }: OpenIssuesListProps) => {
+const PMCardGroup = ({ title, data }: OpenIssuesListProps) => {
   if (!data) {
     return null;
   }
 
-  const openIssuesCount = data.length;
+  const pmcardCount = data.length;
+  // const newCardCount = data.filter((card) => card.isNew).length;
 
   return (
     <Container className="my-5">
-      <CardGroupTitle title="Open Customer Issues" />
+      <CardGroupTitle title={title} />
 
-      {openIssuesCount === 0 ? (
+      {pmcardCount === 0 ? (
         <div className="flex items-center gap-x-2  ">
           <Text className="text-xs font-semibold text-gray-600">
             No open issues
@@ -29,7 +31,7 @@ const OpenIssuesList = ({ data }: OpenIssuesListProps) => {
         </div>
       ) : (
         <div className=" flex flex-col gap-0">
-          {data.map((openIssue,idx) => (
+          {data.map((openIssue, idx) => (
             <PMCard {...openIssue} key={idx} />
           ))}
         </div>
@@ -38,4 +40,4 @@ const OpenIssuesList = ({ data }: OpenIssuesListProps) => {
   );
 };
 
-export default OpenIssuesList;
+export default PMCardGroup;
