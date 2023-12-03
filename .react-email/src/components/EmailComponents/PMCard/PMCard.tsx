@@ -2,28 +2,28 @@ import { Container, Heading, Text } from '@react-email/components';
 import classNames from 'classnames';
 import React from 'react';
 
-type Props = {
+export type PMCardProps = {
   title: string;
-  list: 'Doing' | 'To Deploy';
+  list: 'Doing' | 'To Deploy' | 'In Progress' | 'To Do' | 'Done';
   dueDate: Date;
   isNew: boolean;
   members: { avatarUrl: string }[];
 };
 
-const PMCard = ({ title, list, dueDate, isNew, members }: Props) => {
+const PMCard = ({ title, list, dueDate, isNew, members }: PMCardProps) => {
   const isDueDatePassed = dueDate < new Date();
   const membersCount = members.length;
 
   return (
-    <Container className="w-full bg-white rounded-md shadow-md   my-4 pl-3 pr-5 relative ">
+    <Container className="w-full bg-white rounded-md shadow-md   my-2 pl-3 pr-5 relative ">
       {isNew && (
         <Text className="absolute top-0 right-0 m-0 py-0.5 px-1 bg-green-500 rounded-sm text-[0.6rem] leading-3 font-semibold text-white ">
           New
         </Text>
       )}
-      <Text className="block p-1 text-sm font-semibold">{title}</Text>
-      <div className="grid grid-cols-4 items-center">
-        <Text className="w-fit  text-xs font-semibold bg-yellow-300 px-1  text-yellow-700 border border-solid border-yellow-400 rounded-sm">
+      <Text className="block p-1 text-sm font-semibold mb-0 ">{title}</Text>
+      <div className="grid grid-cols-4 items-center pt-0 mt-0">
+        <Text className="w-fit  text-xs whitespace-nowrap text-overflow-ellipsis font-semibold bg-yellow-300 px-1  text-yellow-700 border border-solid border-yellow-400 rounded-sm ">
           {list}
         </Text>
         <Text
