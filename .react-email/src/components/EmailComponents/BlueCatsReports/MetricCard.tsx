@@ -11,17 +11,15 @@ export type MetricCardProps = {
   currency?: '$' | '£' | '€';
 };
 
-const MetricCard = ({
-  title,
-  value,
-  diff,
-  diffCol,
-  currency = '£',
-}: MetricCardProps) => {
+const MetricCard = ({ title, value, diff, diffCol, currency = '£' }) => {
   const isPositive = diffCol === 'green';
 
   return (
-    <div className="bg-white shadow-md  rounded-md  w-[100px] h-[100px] flex flex-col justify-between items-start p-3 ">
+    <div
+      className={classNames(
+        'bg-white shadow-md  rounded-md  w-[100px] h-[100px] flex flex-col justify-between items-start p-3 ',
+      )}
+    >
       <Heading className=" text-sm text-blue-600 m-0 p-0">{title}</Heading>
       <Text className="text-xl font-semibold m-0 p-0">
         {currency || '£'}

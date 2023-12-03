@@ -17,12 +17,14 @@ const OpenIssuesList = ({ data }: OpenIssuesListProps) => {
 
   return (
     <Container className="my-5">
-      <Heading className="pt-0 mt-0 text-lg font-semibold">
+      <Heading className="pt-0 mt-0 text-base font-semibold">
         Open Customer Issues
         {openIssuesCount === 0 ? (
           <div className="flex items-center gap-x-2  ">
-            <Text className='text-xs font-semibold text-gray-600' >No open issues</Text>
-            <AiOutlineIssuesClose className='text-red-500' />
+            <Text className="text-xs font-semibold text-gray-600">
+              No open issues
+            </Text>
+            <AiOutlineIssuesClose className="text-red-500" />
           </div>
         ) : (
           <div className=" flex flex-col gap-0">
