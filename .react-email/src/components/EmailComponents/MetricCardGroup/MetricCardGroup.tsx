@@ -1,13 +1,13 @@
 import { Container, Heading } from '@react-email/components';
 
 import MetricCard, { MetricCardProps } from './MetricCard';
-import PMCard from '../PMCard/PMCard';
+import PMCard from '../PMCardGroup/PMCard';
 import classNames from 'classnames';
 import CardGroupTitle from '../CardGroupTitle/CardGroupTitle';
 
 export type BlueCatsReportsData = MetricCardProps[];
 type BlueCatsReportsProps = {
-  title: string
+  title: string;
   data: BlueCatsReportsData;
   alignVertical?: boolean;
 };
@@ -23,7 +23,9 @@ const MetricCardGroup = ({
   const metricCardCount = data.length;
 
   if (!alignVertical && metricCardCount > 2)
-    throw new Error('MetricCardGroup should accept a maximum of 2 metrics when alignVertical is false');
+    throw new Error(
+      'MetricCardGroup should accept a maximum of 2 metrics when alignVertical is false',
+    );
 
   return (
     <Container>

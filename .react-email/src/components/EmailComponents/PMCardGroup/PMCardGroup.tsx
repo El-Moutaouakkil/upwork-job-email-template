@@ -1,12 +1,12 @@
 import { Container, Heading, Text } from '@react-email/components';
 import React, { Component } from 'react';
 import { AiOutlineIssuesClose } from 'react-icons/ai';
-import PMCard, { PMCardProps } from '../PMCard/PMCard';
+import PMCard, { PMCardProps } from './PMCard';
 import CardGroupTitle from '../CardGroupTitle/CardGroupTitle';
 
 export type OpenIssuesListData = PMCardProps[];
 type OpenIssuesListProps = {
-  title:string,
+  title: string;
   data: OpenIssuesListData;
 };
 

@@ -11,7 +11,7 @@ import MetricCard from "../.react-email/src/components/EmailComponents/MetricCar
 import MetricCardGroup, {
     BlueCatsReportsData,
 } from "../.react-email/src/components/EmailComponents/MetricCardGroup/MetricCardGroup";
-import PMCard from "../.react-email/src/components/EmailComponents/PMCard/PMCard";
+import PMCard from "../.react-email/src/components/EmailComponents/PMCardGroup/PMCard";
 import PMCardGroup, {
     OpenIssuesListData,
 } from "../.react-email/src/components/EmailComponents/PMCardGroup/PMCardGroup";
